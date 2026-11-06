@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package prac3pcd;
+package prac4pcd;
 
 import java.util.*;
 
@@ -17,7 +17,7 @@ public class UsaCola {
      */
     public static void main(String[] args) {
       ColaLenta cola = new ColaLenta(10);
-        Producto p = new Producto(cola);
+        Productor p = new Productor(cola);
         Consumidor c = new Consumidor(cola);
         
         Thread c1 = new Thread(c);

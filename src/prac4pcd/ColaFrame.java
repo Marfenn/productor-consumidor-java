@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/AWTForms/Frame.java to edit this template
  */
-package prac3pcd;
+package prac4pcd;
 
 /**
  *
@@ -51,7 +51,10 @@ public class ColaFrame extends java.awt.Frame {
        ColaFrame f = new ColaFrame();
        CanvasCola mc = new CanvasCola(capacidad);
        ColaLenta cola = new ColaLenta(capacidad,mc);
-       Producto p = new Producto(cola);
+       Productor p = new Productor(cola);
+       Productor p2 = new Productor(cola);
+       Productor p3 = new Productor(cola);
+       Productor p4 = new Productor(cola);
        Consumidor c = new Consumidor(cola);
        f.setSize(ancho,alto);
        f.setBackground(Color.white);
@@ -60,10 +63,16 @@ public class ColaFrame extends java.awt.Frame {
        f.setVisible(true);
        
        p.start();
+       p2.start();
+       p3.start();
+       p4.start();
        c.start();
        
        try{
        p.join();
+       p2.join();
+       p3.join();
+       p4.join();
        c.join();
        Thread.sleep(3000);
        }catch (InterruptedException e){

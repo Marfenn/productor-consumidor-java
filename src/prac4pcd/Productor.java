@@ -2,22 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package prac3pcd;
+package prac4pcd;
+
+import java.util.Random;
 
 /**
  *
  * @author Don Daniel
  */
-public class Producto extends Thread{
+public class Productor extends Thread{
 
     private ColaLenta Cola;
-    public Producto(ColaLenta Cola) {
+     private Random rnd = new Random();
+     
+    public Productor(ColaLenta Cola) {
         this.Cola = Cola;
     }
     
     public void producir() throws Exception{
     
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 15; i++) {
+            Thread.sleep(1000 + rnd.nextInt(2001));
             float numero = (float) Math.random();
             Cola.acola(numero);
             System.out.println("Identificador: "+ this.getName() + " Número: " + numero);
