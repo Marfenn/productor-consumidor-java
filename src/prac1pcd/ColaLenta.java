@@ -8,14 +8,14 @@ package prac1pcd;
  *
  * @author Don Daniel
  */
-public class Cola implements Icola {
+public class ColaLenta implements Icola {
     private int capacidad;
     private int numelementos;
     private int tail;
     private int head;
     private Object[] datos;
     
-    public Cola(int capacidad2){
+    public ColaLenta(int capacidad2){
         
         this.capacidad=capacidad2;
         this.numelementos=0;
@@ -28,6 +28,7 @@ public class Cola implements Icola {
     }
     
     public void acola (Object elemento) throws Exception{
+        Thread.sleep(1000);
     if (numelementos!=capacidad){
     datos[tail]=elemento;
     tail=(tail+1)%capacidad;
@@ -36,6 +37,7 @@ public class Cola implements Icola {
     }
     
    public Object desacola() throws Exception{
+       Thread.sleep(1000);
        if(numelementos==0){
         throw new Exception("La cola esta vacia.");}else{
            Object ElementoExtraido = datos[head];
